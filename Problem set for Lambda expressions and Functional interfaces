@@ -1,0 +1,92 @@
+📝 Coding Tasks on Lambdas & Functional Interfaces
+
+🔹 Part 1: Basic Lambdas with Built-in Interfaces
+1. Predicate
+Write a Predicate<Integer> that checks if a number is even.
+Filter a list of numbers using this predicate.
+
+2. Function
+Create a Function<String, Integer> that returns the length of a string.
+Apply it to a list of strings and print the lengths.
+
+3.Consumer
+Write a Consumer<String> that prints a string in uppercase.
+Use it with forEach() on a list of names.
+
+4. Supplier
+Write a Supplier<Double> that generates a random number.
+Call get() multiple times to print random numbers.
+
+🔹 Part 2: Intermediate Tasks
+
+5. Comparator with Lambdas
+Create a list of strings and sort them by length using a lambda-based Comparator.
+Then sort them in reverse alphabetical order.
+
+6. Chain Functions
+Create two functions:
+Function<String, String> → convert string to uppercase.
+Function<String, String> → add "!!!" at the end.
+Chain them with andThen() and apply on "java".
+
+7. Multiple Predicates
+Write a program using Predicate<String> to check:
+if a string is non-empty
+if it starts with "A".
+Combine them with and() and or() to test different strings.
+
+🔹 Part 3: Custom Functional Interfaces
+
+8. Math Operation Interface
+Create a custom functional interface MathOperation with method int operate(int a, int b).
+Implement addition, subtraction, multiplication, division using lambdas.
+
+9. String Formatter
+Define @FunctionalInterface interface StringFormatter { String format(String s); }.
+Implement:
+to uppercase
+reverse string
+remove spaces
+
+10. Number Checker
+Create a functional interface NumberChecker with method boolean check(int n).
+Implement:
+check prime
+check palindrome number
+check Armstrong number
+
+🔹 Part 4: Realistic Use Cases
+
+11. Employee Filtering (Predicate)
+Create an Employee class with name, age, and salary.
+Use predicates to filter:
+employees older than 30
+employees earning more than 50k
+
+12. String Processing (Function & Consumer)
+Given a list of sentences,
+use Function<String, Integer> to count words in each sentence.
+use Consumer<Integer> to print word count in a nice format.
+
+13. Chained Consumers
+Create two consumers:
+one that prints a name in uppercase
+one that prints "Hello " before the name
+Chain them using andThen() and test with a list of names.
+
+14. Custom Calculator
+Create a calculator using a functional interface Calculator that takes two numbers and performs the operation passed as a lambda.
+Call it with +, -, *, / lambdas.
+
+15. Stream + Lambda Integration
+Take a list of integers.
+Use stream().filter(), map(), and forEach() with lambdas to:
+print only even numbers
+square them
+print the results
+
+⚡️ These tasks will make you comfortable with:
+
+✅ Using all built-in functional interfaces
+✅ Creating custom functional interfaces
+✅ Combining lambdas with Streams API
