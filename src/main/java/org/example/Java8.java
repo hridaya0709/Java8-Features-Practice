@@ -1,12 +1,13 @@
 package org.example;
 
 import org.example.lambdaAndFunctionalInterfaces.classes.data.EmployeeData;
-import org.example.lambdaAndFunctionalInterfaces.classes.data.UsersData;
+import org.example.streams.classes.data.UsersData;
 import org.example.lambdaAndFunctionalInterfaces.classes.logic.*;
 import org.example.lambdaAndFunctionalInterfaces.classes.model.Employee;
 import org.example.lambdaAndFunctionalInterfaces.interfaces.Calculator;
 import org.example.lambdaAndFunctionalInterfaces.interfaces.MathOperation;
 import org.example.lambdaAndFunctionalInterfaces.interfaces.StringFormatter;
+import org.example.streams.classes.logic.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

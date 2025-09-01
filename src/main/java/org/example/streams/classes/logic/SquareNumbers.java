@@ -1,4 +1,4 @@
-package org.example.lambdaAndFunctionalInterfaces.classes.logic;
+package org.example.streams.classes.logic;
 
 import java.util.List;
 import java.util.stream.Collectors;

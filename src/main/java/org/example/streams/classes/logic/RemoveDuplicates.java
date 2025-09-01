@@ -1,7 +1,6 @@
-package org.example.lambdaAndFunctionalInterfaces.classes.logic;
+package org.example.streams.classes.logic;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RemoveDuplicates {

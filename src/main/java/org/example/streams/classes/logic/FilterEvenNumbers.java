@@ -1,6 +1,4 @@
-package org.example.lambdaAndFunctionalInterfaces.classes.logic;
-
-import org.example.Java8;
+package org.example.streams.classes.logic;
 
 import java.util.List;
 
