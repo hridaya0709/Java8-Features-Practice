@@ -1,11 +1,8 @@
 package org.example.lambdaAndFunctionalInterfaces.classes.logic;
 
 //Write a program using Predicate<String> to check:
-//
 //if a string is non-empty
-//
 //if it starts with "A".
-//
 //Combine them with and() and or() to test different strings.
 
 import java.util.function.Predicate;

@@ -1,0 +1,115 @@
+📘 Streams Problem Set
+Set 1 – Basics (Getting Comfortable with Streams)
+
+1. Filter Even Numbers
+Take a list of integers. Use filter() to print only even numbers.
+
+2. Square Numbers
+Take a list of integers. Use map() to square them and print.
+
+3. Sort Strings
+Given a list of strings, sort them alphabetically using sorted() and print.
+
+4. Unique Elements
+Given a list with duplicates, remove duplicates using distinct().
+
+5. Limit & Skip
+Take a list of integers and print only the first 5 numbers. Then, print all except the first 3.
+
+Set 2 – Intermediate Operations
+
+6. Names Starting with a Letter
+From a list of names, print only those that start with "A".
+
+7. Convert to Uppercase
+Take a list of names, convert them to uppercase using map().
+
+8. Filter + Map Together
+From a list of numbers, keep only odd numbers and then cube them.
+
+9. Peek Debugging
+Use peek() to print values at each stage (before filtering, before mapping, etc.).
+
+10. Find First Match
+Given a list of integers, find the first number greater than 50.
+
+Set 3 – Terminal Operations
+
+11. Count Elements
+Count how many names in a list start with "S".
+
+12. Min & Max
+Find the smallest and largest number from a list using min() and max().
+
+13. Reduce to Sum
+Given a list of integers, use reduce() to calculate their sum.
+
+14. Any/All/None Match
+Check if:
+any number is greater than 100
+all numbers are positive
+no number is negative
+
+15. Find Any
+From a list, find any number that is divisible by 5.
+
+Set 4 – Collectors
+
+16. Collect to List/Set
+Filter only even numbers from a list and collect them into a List and a Set.
+
+17. Join Strings
+Given a list of names, join them into a single string separated by commas.
+
+18. Group By Length
+Group words by their length using Collectors.groupingBy().
+
+19. Count Occurrences
+Count how many times each word appears in a list using groupingBy().
+
+20. Partition Numbers
+Partition integers into even and odd using Collectors.partitioningBy().
+
+Set 5 – Advanced Streams
+
+21. FlatMap with Lists
+Given a list of lists of integers, flatten them into a single list.
+
+22. Word Frequency
+From a paragraph, split into words and count frequency using streams.
+
+23. Top 3 Elements
+Find the top 3 largest numbers from a list.
+
+24. Longest String
+From a list of strings, find the longest one using streams.
+
+25. Prime Numbers Filter
+Write a stream pipeline that filters prime numbers from a list.
+
+Set 6 – Specialized Streams & Parallel
+
+26. IntStream Range
+Use IntStream.range(1, 20) to generate numbers and filter only multiples of 3.
+
+27. DoubleStream Average
+Given a list of doubles, find the average using mapToDouble().average().
+
+28. Sum Using IntStream
+Calculate the sum of first 50 natural numbers using IntStream.rangeClosed().
+
+29. Parallel Stream Performance
+Use a parallel stream to process a large list and compare with normal stream.
+
+30. Custom Collector
+Implement a custom collector to concatenate strings with a prefix and suffix.
+
+✅ With these 30 problems, you’ll have covered:
+
+Creation of streams
+All intermediate ops (filter, map, flatMap, sorted, distinct, etc.)
+All terminal ops (collect, reduce, count, min/max, etc.)
+Collectors (groupingBy, partitioningBy, joining)
+Specialized streams (IntStream, DoubleStream)
+Parallel streams
+Custom collectors

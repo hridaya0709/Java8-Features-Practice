@@ -2,7 +2,7 @@ package org.example.lambdaAndFunctionalInterfaces.classes.logic;
 
 import java.util.List;
 
-public class EvenNumberFilter {
+public class SquareEvenNumberFilter {
     public void getEvenNumbers(List<Integer> nums) {
         nums.stream()
                 .filter(i -> i % 2 == 0)
