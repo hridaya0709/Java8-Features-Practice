@@ -1,5 +1,5 @@
-This project consists of my practice for latest features from Java version 8 to 21
-I have aimed for the following roadmap
+This project consists of my practice for latest features from Java version 8.
+I have aimed for the following roadmap which consists of Java 8 to 21 features.
 
 🔹 Step 1: Strengthen Java 8 (Foundation for Modern Java)
 Most real-world projects still rely on Java 8 features, so master these first:
