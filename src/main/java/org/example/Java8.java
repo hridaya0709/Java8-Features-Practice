@@ -10,39 +10,94 @@ import org.example.lambdaAndFunctionalInterfaces.interfaces.StringFormatter;
 import org.example.streams.classes.logic.*;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Java8 {
+
+    private static final Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        /*6. Names Starting with a Letter
-        From a list of names, print only those that start with "A".*/
-        print("Names should start with? Select A-Z or a-z");
+        /*11. Count Elements
+        Count how many names in a list start with "S".*/
+        UsersData data = new UsersData();
+        print("Enter the character :");
         String ch = sc.nextLine();
-
         if(ch.length() != 1) {
-            print("Entered input is invalid");
+            print("Invalid character entered");
             return;
         }
+        CountByFilter countByFilter = new CountByFilter();
+        print("Count of usernames that starts with " + ch + " : "
+                + countByFilter.process(data.getUsers(), ch));
 
-        UsersData usersData = new UsersData();
-        ProcessUsers processUsers = new ProcessUsers();
-        print("Names that starts with " + ch + " : ");
-        printList(processUsers.getFilteredUsers(usersData.getUsers(), ch));
+        /*12. Min & Max
+        Find the smallest and largest number from a list using min() and max().*/
+        List<Integer> list = takeListNumbersInput();
+        FindMinMaxFromList findMinMaxFromList = new FindMinMaxFromList();
+        Optional<Integer> smallest = findMinMaxFromList.getMin(list);
+        Optional<Integer> largest = findMinMaxFromList.getMax(list);
 
-        /*7. Convert to Uppercase
-        Take a list of names, convert them to uppercase using map().*/
+        print(smallest.map(i -> "Smallest is : " + i)
+                .orElse("No result for smallest"));
 
-        List<String> names = takeListStringInput();
-        UppercaseListConverter uppercaseListConverter = new UppercaseListConverter();
-        printList(uppercaseListConverter.convert(names));
+        print(largest.map(i -> "Largest is : " + i)
+                .orElse("No result for largest"));
+
+        /*13. Reduce to Sum
+        Given a list of integers, use reduce() to calculate their sum.*/
+        List<Integer> nums13 = takeListNumbersInput();
+        ReduceAndSum reduceAndSum = new ReduceAndSum();
+        print("Sum of the elements in the list is : " + reduceAndSum.process(nums13));
+
+        /*14. Any/All/None Match
+        Check if:
+        any number is greater than 100
+        all numbers are positive
+        no number is negative*/
+        List<Integer> nums14 = takeListNumbersInput();
+        print("Select the match type to be performed: 1.Any Match. 2.All Match. 3.None Match. Enter 1/2/3");
+        int matchType = sc.nextInt();
+        if(matchType<0 || matchType>3) {
+            print("Invalid match type provided");
+            return;
+        }
+        int n1 = 0;
+        Predicate<Integer> condition = null;
+        if(matchType==1) {
+            print("Select any one: 1.Any one number should be greater than 100. " +
+                    "2.Any one number should be less than 100. Enter 1/2");
+            n1 = sc.nextInt();
+            condition = n1==1 ? i -> i>100 : i -> i<100;
+        }
+        else if(matchType==2 || matchType==3)  {
+            print("Select any one: 1.All numbers should be positive. 2.All numbers should be negative. Enter 1/2");
+            n1 = sc.nextInt();
+            condition = n1==1 ? i -> i>0 : i -> i<0;
+        }
+
+        MatchInList matchInList = new MatchInList();
+        print("Result as per your selections : " + matchInList.process(nums14, condition, matchType));
+
+        /*15. Find Any
+        From a list, find any number that is divisible by 5.*/
+        List<Integer> nums15 = takeListNumbersInput();
+        if(nums15.isEmpty()) {
+            print("No list is provided");
+            return;
+        }
+        print("Number should be divisible by: ");
+        int n15 = sc.nextInt();
+
+        DivisibleBy divisibleBy = new DivisibleBy();
+        print(divisibleBy.check(nums15, n15)
+                .map(i -> "Number divisible by " + n15 + " : " + i)
+                .orElse("No number is divisible by " + n15));
+
     }
 
     public static List<Integer> takeListNumbersInput() {
         print("Enter the size : ");
-        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
         List<Integer> nums = new ArrayList<>();
@@ -55,7 +110,6 @@ public class Java8 {
 
     public static List<String> takeListStringInput() {
         print("Enter the size : ");
-        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
         List<String> list = new ArrayList<>();
@@ -133,8 +187,6 @@ public class Java8 {
 
     public static void LambdaExprFISet3() {
 
-        Scanner sc = new Scanner(System.in);
-
         /*Set-3*/
         /*Create a custom functional interface MathOperation with method int operate(int a, int b).
         Implement addition, subtraction, multiplication, division using lambdas.*/
@@ -181,8 +233,6 @@ public class Java8 {
     }
 
     public static void LambdaExprFISet4() {
-
-        Scanner sc = new Scanner(System.in);
 
         /*Set-4*/
         /*Employee Filtering (Predicate)
@@ -309,7 +359,6 @@ public class Java8 {
 
     public static void StreamsSet1() {
 
-        Scanner sc = new Scanner(System.in);
         /*Set-1*/
         /*1. Filter Even Numbers
         Take a list of integers. Use filter() to print only even numbers.*/
@@ -358,4 +407,50 @@ public class Java8 {
         printList(limitSkip.skip(nums, skip));
     }
 
+    public static void streamsSet2() {
+
+        /*6. Names Starting with a Letter
+        From a list of names, print only those that start with "A".*/
+        print("Names should start with? Select A-Z or a-z");
+        String ch = sc.nextLine();
+
+        if(ch.length() != 1) {
+            print("Entered input is invalid");
+            return;
+        }
+
+        UsersData usersData = new UsersData();
+        ProcessUsers processUsers = new ProcessUsers();
+        print("Names that starts with " + ch + " : ");
+        printList(processUsers.getFilteredUsers(usersData.getUsers(), ch));
+
+        /*7. Convert to Uppercase
+        Take a list of names, convert them to uppercase using map().*/
+
+        List<String> names = takeListStringInput();
+        UppercaseListConverter uppercaseListConverter = new UppercaseListConverter();
+        printList(uppercaseListConverter.convert(names));
+
+        /*8. Filter + Map Together
+        From a list of numbers, keep only odd numbers and then cube them.*/
+        List<Integer> nums8 = takeListNumbersInput();
+        OddNumbersCube oddNumbersCube = new OddNumbersCube();
+        print("Output is :");
+        printList(oddNumbersCube.process(nums8));
+
+        /*9. Peek Debugging
+        Use peek() to print values at each stage (before filtering, before mapping, etc.).*/
+        List<Integer> nums9 = takeListNumbersInput();
+        OddNumbersCube oddNumbersCube1 = new OddNumbersCube();
+        print("Output is: ");
+        printList(oddNumbersCube1.peekProcess(nums9));
+
+        /*10. Find First Match
+        Given a list of integers, find the first number greater than 50.*/
+        List<Integer> nums10 = takeListNumbersInput();
+        FindFromList findFromList = new FindFromList();
+        Optional<Integer> result = findFromList.findFirstNumberGT50(nums10);
+        print(result.map(i -> "First number greater than 50 is : " + i)
+                .orElse("No number is found greater than 50"));
+    }
 }
